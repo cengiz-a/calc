@@ -2,6 +2,7 @@ import body from '../body.handlebars';
 import backbone from 'backbone';
 import mn from 'backbone.marionette';
 
+
 var model = Backbone.Model.extend ();
 
 var view = mn.View.extend ({
@@ -21,7 +22,6 @@ var view = mn.View.extend ({
 		'change:ergebnis': 'actOnChange',
 		'change:value1': 'actOnChange',
 		'change:value2': 'actOnChange',
-		
 	},
 
 
@@ -33,11 +33,11 @@ var view = mn.View.extend ({
 		this.model.set({value1: parseInt(e.target.value)});
 	},
 
-	changeValue2: function (e) {		
+	changeValue2: function (e) {
 		this.model.set({value2: parseInt(e.target.value)});
 	},
 
-	plus: function (e) {	
+	plus: function (e) {
 		this.model.set({ergebnis: this.model.get("value1") + this.model.get("value2")});
 	},
 
@@ -50,11 +50,10 @@ var view = mn.View.extend ({
 	},
 
 	divide: function (e) {
+		console.log("hallo");
 		this.model.set({ergebnis: this.model.get("value1") / this.model.get("value2")});
 	}
 })
 
 var view1 = new view({model: new model()});
 view1.render();
-
-
